@@ -53,8 +53,16 @@ class ChatMessageController extends Controller
         
         broadcast(new ChatMessageSent($user, $message))->toOthers();
 
-        return ['status' => 'Message Sent!'];
-
         return ['success' => true, 'message' => 'Message Successfully Sent!'];
     }
+
+    public function delete_message(Request $request)
+    {
+        if(!isset($request->id) || empty($request->id)){
+            return ['success' => false, 'message' => 'Invalid Request!'];
+        }
+        ChatMessage::where("id",$request->id)->delete();
+        return ['success' => true, 'message' => 'Message Successfully Deleted!'];
+    }
+    
 }

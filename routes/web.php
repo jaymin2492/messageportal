@@ -24,6 +24,8 @@ Route::get('/home', [ChatMessageController::class, 'index'])->name('home');
 Route::get('/', [ChatMessageController::class, 'index']);
 Route::get('chat_messages', [ChatMessageController::class, 'fetchMessages']);
 Route::post('chat_messages', [ChatMessageController::class, 'sendMessage']);
+Route::post('delete_message', [ChatMessageController::class, 'delete_message']);
+
 
 Auth::routes();
 

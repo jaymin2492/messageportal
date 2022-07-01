@@ -5327,6 +5327,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['messages', 'user_id']
 });
@@ -5351,8 +5368,7 @@ Vue.component('chat-form', (__webpack_require__(/*! ./components/ChatForm.vue */
 var app = new Vue({
   el: '#app',
   data: {
-    messages: [],
-    user_id: document.querySelector("meta[name='user_id']").getAttribute('content')
+    messages: []
   },
   created: function created() {
     var _this = this;
@@ -34528,32 +34544,81 @@ var render = function () {
     { staticClass: "chat" },
     _vm._l(_vm.messages, function (message) {
       return _c("li", { staticClass: "left clearfix" }, [
-        _c(
-          "div",
-          {
-            staticClass: "chat-body clearfix",
-            class: [message.user.id === _vm.user_id ? "right" : ""],
-          },
-          [
-            _c("div", { staticClass: "header" }, [
-              _c("strong", { staticClass: "primary-font" }, [
-                _vm._v(
-                  "\n                    " +
-                    _vm._s(message.user.name) +
-                    "\n                "
-                ),
-              ]),
-            ]),
-            _vm._v(" "),
-            _c("p", [
-              _vm._v(
-                "\n                " +
-                  _vm._s(message.message) +
-                  "\n            "
-              ),
-            ]),
-          ]
-        ),
+        message.is_current_user_message
+          ? _c(
+              "div",
+              {
+                staticClass: "chat-body clearfix right-body",
+                staticStyle: {
+                  background:
+                    "url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png') right top no-repeat",
+                },
+              },
+              [
+                _c("div", { staticClass: "header" }, [
+                  _c("strong", { staticClass: "primary-font" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(message.user.name) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", { staticClass: "text-3xl font-bold underline" }, [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(message.message) +
+                      "\n                "
+                  ),
+                ]),
+                _c("div", { staticClass: "delete_message" }, [
+                  _c(
+                    "a",
+                    { attrs: { href: "javascript:void(0);", id: message.id } },
+                    [
+                      _c("img", {
+                        attrs: {
+                          src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShL4w3gmrhC5QTqdKBgFIB7ONm3MZ95IE_gQ&usqp=CAU",
+                          alt: "",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c("p"),
+              ]
+            )
+          : _c(
+              "div",
+              {
+                staticClass: "chat-body clearfix",
+                staticStyle: {
+                  background:
+                    "url('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png') left top no-repeat",
+                },
+              },
+              [
+                _c("div", { staticClass: "header" }, [
+                  _c("strong", { staticClass: "primary-font" }, [
+                    _vm._v(
+                      "\n                    " +
+                        _vm._s(message.user.name) +
+                        "\n                "
+                    ),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("p", [
+                  _vm._v(
+                    "\n                " +
+                      _vm._s(message.message) +
+                      "\n            "
+                  ),
+                ]),
+              ]
+            ),
       ])
     }),
     0

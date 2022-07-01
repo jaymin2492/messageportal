@@ -12,8 +12,7 @@
  const app = new Vue({
      el: '#app',
      data: {
-         messages: [],
-         user_id: document.querySelector("meta[name='user_id']").getAttribute('content')
+         messages: []
      },
      created() {
         this.fetchMessages();
